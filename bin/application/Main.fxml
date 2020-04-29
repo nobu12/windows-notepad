@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <MenuBar prefHeight="40.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="ファイル(F)">
+            <items>
+              <MenuItem fx:id="newFile" mnemonicParsing="false" onAction="#onCreateNewFile" text="新規(N)                            Ctrl+N" />
+                  <MenuItem mnemonicParsing="false" text="開く(0)...                           Ctrl+O" />
+                  <MenuItem mnemonicParsing="false" text="上書き保存(S)                    Ctrl+S" />
+                  <MenuItem mnemonicParsing="false" text="名前を付けて保存(A)..." />
+                  <MenuItem mnemonicParsing="false" text="ページ設定(U)..." />
+                  <MenuItem mnemonicParsing="false" text="印刷(P)...                          Ctrl+P" />
+                  <MenuItem mnemonicParsing="false" text="メモ帳の終了(X)" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="編集(E)">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="元に戻す(U)...               Ctrl+Z" />
+                  <MenuItem mnemonicParsing="false" text="切り取り(T)                    Ctrl+X" />
+                  <MenuItem mnemonicParsing="false" text="コピー(C)                     Ctrl+C" />
+                  <MenuItem mnemonicParsing="false" text="貼り付け(P)                 Ctrl+V" />
+                  <MenuItem mnemonicParsing="false" text="削除(L)                          Del" />
+                  <MenuItem mnemonicParsing="false" text="検索(F)...                 Ctrl+F" />
+                  <MenuItem mnemonicParsing="false" text="次を検索(N)                  F3" />
+                  <MenuItem mnemonicParsing="false" text="置換(R)...                  Ctrl+H" />
+                  <MenuItem mnemonicParsing="false" text="行へ移動(G)...               Ctrl+G" />
+                  <MenuItem mnemonicParsing="false" text="すべて選択(A)                 Ctrl+A" />
+                  <MenuItem mnemonicParsing="false" text="日付と時刻(D)                  F5" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="書式(O)">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="右端で折り返す(W)" />
+                  <MenuItem mnemonicParsing="false" text="フォント(F)..." />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="表示(V)">
+              <items>
+                <MenuItem mnemonicParsing="false" text="ステータスバー(S)" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="ヘルプ(H)">
+              <items>
+                <MenuItem mnemonicParsing="false" text="ヘルプの表示(H)" />
+                <MenuItem mnemonicParsing="false" text="バージョン情報(A)" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <TextField alignment="TOP_LEFT" disable="true" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />
+   </children>
+</GridPane>
