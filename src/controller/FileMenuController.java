@@ -43,4 +43,22 @@ public class FileMenuController implements Initializable {
 		//File file = fc.showSaveDialog(null);
 		fc.showOpenDialog(null);
 	}
+
+	/**
+	 * 上書き保存
+	 */
+	@FXML
+	public void onSaveOverWriteFile() {
+		 FileChooser fc = new FileChooser();
+		 fc.showSaveDialog(Window.getStage());
+	}
+
+	/**
+	 * 名前を付けて保存
+	 */
+	@FXML
+	public void onSaveNewFile() {
+		 FileChooser fc = new FileChooser();
+		 fc.showSaveDialog(Window.getStage());
+	}
 }
