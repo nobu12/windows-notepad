@@ -5,9 +5,11 @@ import java.util.ResourceBundle;
 
 import application.Main;
 import application.window.Window;
+import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -49,8 +51,8 @@ public class FileMenuController implements Initializable {
 	 */
 	@FXML
 	public void onSaveOverWriteFile() {
-		 FileChooser fc = new FileChooser();
-		 fc.showSaveDialog(Window.getStage());
+		FileChooser fc = new FileChooser();
+		fc.showSaveDialog(Window.getStage());
 	}
 
 	/**
@@ -58,7 +60,33 @@ public class FileMenuController implements Initializable {
 	 */
 	@FXML
 	public void onSaveNewFile() {
-		 FileChooser fc = new FileChooser();
-		 fc.showSaveDialog(Window.getStage());
+		FileChooser fc = new FileChooser();
+		fc.showSaveDialog(Window.getStage());
+	}
+
+	/**
+	 * ページ設定
+	 */
+	@FXML
+	public void onPrintConfiguration() {
+		PrinterJob job = PrinterJob.createPrinterJob();
+		job.showPageSetupDialog(null);
+	}
+
+	/**
+	 * ページ設定
+	 */
+	@FXML
+	public void onPrintOut() {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        job.showPrintDialog(null);
+	}
+
+	/**
+	 * メモ帳の終了
+	 */
+	@FXML
+	public void onCloseApplication() {
+        Platform.exit();
 	}
 }

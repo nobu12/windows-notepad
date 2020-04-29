@@ -11,8 +11,8 @@
          <MenuItem mnemonicParsing="false" onAction="#onOpenNewFile"  text="開く(0)...                           Ctrl+O" />
          <MenuItem mnemonicParsing="false" onAction="#onSaveOverWriteFile" text="上書き保存(S)                    Ctrl+S" />
          <MenuItem mnemonicParsing="false" onAction="#onSaveNewFile" text="名前を付けて保存(A)..." />
-         <MenuItem mnemonicParsing="false" text="ページ設定(U)..." />
-         <MenuItem mnemonicParsing="false" text="印刷(P)...                          Ctrl+P" />
-         <MenuItem mnemonicParsing="false" text="メモ帳の終了(X)" />
+         <MenuItem mnemonicParsing="false" onAction="#onPrintConfiguration" text="ページ設定(U)..." />
+         <MenuItem mnemonicParsing="false" onAction="#onPrintOut" text="印刷(P)...                          Ctrl+P" />
+         <MenuItem mnemonicParsing="false" onAction="#onCloseApplication" text="メモ帳の終了(X)" />
    </items>
  </Menu>
