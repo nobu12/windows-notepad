@@ -5,9 +5,9 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.Initializable;
 
-public class MainController implements Initializable  {
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // 何もしない
-    }
+public class MainController implements Initializable {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// 何もしない
+	}
 }
