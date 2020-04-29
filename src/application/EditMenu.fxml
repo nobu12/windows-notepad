@@ -10,7 +10,7 @@
          <MenuItem mnemonicParsing="false" text="元に戻す(U)...               Ctrl+Z" />
          <MenuItem mnemonicParsing="false" text="切り取り(T)                    Ctrl+X" />
          <MenuItem mnemonicParsing="false" onAction="#onCopyText" text="コピー(C)                     Ctrl+C" />
-         <MenuItem mnemonicParsing="false" text="貼り付け(P)                 Ctrl+V" />
+         <MenuItem mnemonicParsing="false" onAction="#onPasteText" text="貼り付け(P)                 Ctrl+V" />
          <MenuItem mnemonicParsing="false" text="削除(L)                          Del" />
          <MenuItem mnemonicParsing="false" text="検索(F)...                 Ctrl+F" />
          <MenuItem mnemonicParsing="false" text="次を検索(N)                  F3" />

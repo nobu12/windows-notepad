@@ -28,4 +28,14 @@ public class EditMenuController implements Initializable {
 		content.putString(textArea.getText());
 		clipboard.setContent(content);
 	}
+
+	/**
+	 * 貼り付け
+	 */
+	@FXML
+	public void onPasteText(Event e) {
+		TextArea textArea = MainController.getTextArea();
+		Clipboard clipboard = Clipboard.getSystemClipboard();
+		textArea.appendText(clipboard.getString());
+	}
 }
