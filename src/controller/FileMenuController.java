@@ -74,7 +74,7 @@ public class FileMenuController implements Initializable {
 	}
 
 	/**
-	 * ページ設定
+	 * 印刷
 	 */
 	@FXML
 	public void onPrintOut() {
