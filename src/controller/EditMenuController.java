@@ -18,6 +18,23 @@ public class EditMenuController implements Initializable {
 	}
 
 	/**
+	 * 切り取り
+	 */
+	@FXML
+	public void onCutText(Event e) {
+		TextArea textArea = MainController.getTextArea();
+
+		// クリップボードにコピー
+		Clipboard clipboard = Clipboard.getSystemClipboard();
+		ClipboardContent content = new ClipboardContent();
+		content.putString(textArea.getSelectedText());
+		clipboard.setContent(content);
+
+		// 選択テキストを削除
+		textArea.deleteText(textArea.getSelection());
+	}
+
+	/**
 	 * コピー
 	 */
 	@FXML
