@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+ <Menu xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FileMenuController" mnemonicParsing="false" text="ファイル(F)">
+   <items>
+         <MenuItem mnemonicParsing="false" text="新規(N)                            Ctrl+N" />
+         <MenuItem mnemonicParsing="false" onAction="#onCreateNewFile"  text="開く(0)...                           Ctrl+O" />
+         <MenuItem mnemonicParsing="false" text="上書き保存(S)                    Ctrl+S" />
+         <MenuItem mnemonicParsing="false" text="名前を付けて保存(A)..." />
+         <MenuItem mnemonicParsing="false" text="ページ設定(U)..." />
+         <MenuItem mnemonicParsing="false" text="印刷(P)...                          Ctrl+P" />
+         <MenuItem mnemonicParsing="false" text="メモ帳の終了(X)" />
+   </items>
+ </Menu>
