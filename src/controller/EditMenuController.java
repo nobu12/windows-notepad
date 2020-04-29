@@ -38,4 +38,13 @@ public class EditMenuController implements Initializable {
 		Clipboard clipboard = Clipboard.getSystemClipboard();
 		textArea.appendText(clipboard.getString());
 	}
+
+	/**
+	 * 削除
+	 */
+	@FXML
+	public void onDeleteText(Event e) {
+		TextArea textArea = MainController.getTextArea();
+		textArea.deleteText(textArea.getSelection());
+	}
 }
