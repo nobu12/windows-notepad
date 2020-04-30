@@ -12,7 +12,6 @@
   <rowConstraints>
     <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
     <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
@@ -26,12 +25,8 @@
                   <MenuItem mnemonicParsing="false" text="フォント(F)..." />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="表示(V)">
-              <items>
-                <MenuItem mnemonicParsing="false" text="ステータスバー(S)" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="ヘルプ(H)">
+          <fx:include source="DisplayMenu.fxml"/>
+          <Menu mnemonicParsing="false" text="ヘルプ(H)">
               <items>
                 <MenuItem mnemonicParsing="false" text="ヘルプの表示(H)" />
                 <MenuItem mnemonicParsing="false" text="バージョン情報(A)" />
@@ -39,6 +34,6 @@
             </Menu>
         </menus>
       </MenuBar>
-      <TextField alignment="TOP_LEFT" disable="true" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />
+      <TextField fx:id="textField" alignment="TOP_LEFT" disable="true" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />
    </children>
 </GridPane>
