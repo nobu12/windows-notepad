@@ -64,4 +64,13 @@ public class EditMenuController implements Initializable {
 		TextArea textArea = MainController.getTextArea();
 		textArea.deleteText(textArea.getSelection());
 	}
+
+	/**
+	 * すべて選択
+	 */
+	@FXML
+	public void onSelectAllText(Event e) {
+		TextArea textArea = MainController.getTextArea();
+		textArea.selectAll();
+	}
 }
