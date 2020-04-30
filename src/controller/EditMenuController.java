@@ -1,6 +1,8 @@
 package controller;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.event.Event;
@@ -72,5 +74,17 @@ public class EditMenuController implements Initializable {
 	public void onSelectAllText(Event e) {
 		TextArea textArea = MainController.getTextArea();
 		textArea.selectAll();
+	}
+
+	/**
+	 * 日付と時刻
+	 */
+	@FXML
+	public void onInsertDateTime(Event e) {
+		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm yyyy/MM/dd");
+		LocalDateTime localDateTime = LocalDateTime.now();
+
+		TextArea textArea = MainController.getTextArea();
+		textArea.appendText(localDateTime.format(dateTimeFormatter));
 	}
 }
