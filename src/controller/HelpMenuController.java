@@ -3,7 +3,8 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.stage.MainStage;
+import application.stage.FaqStage;
+import application.stage.VersionInfoStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,7 +36,7 @@ public class HelpMenuController implements Initializable {
 			stage.setTitle("Windowsヘルプとサポート");
 			stage.setScene(scene);
 			stage.show();
-			MainStage.setStage(stage);
+			FaqStage.setStage(stage);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
@@ -56,7 +57,7 @@ public class HelpMenuController implements Initializable {
 			stage.setScene(scene);
 			stage.setResizable(false);
 			stage.initModality(Modality.APPLICATION_MODAL);
-			MainStage.setStage(stage);
+			VersionInfoStage.setStage(stage);
 			stage.showAndWait();
 		} catch (Exception e1) {
 			e1.printStackTrace();

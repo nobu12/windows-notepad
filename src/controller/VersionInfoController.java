@@ -3,7 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.stage.MainStage;
+import application.stage.VersionInfoStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +20,6 @@ public class VersionInfoController implements Initializable {
 	 */
 	@FXML
 	public void onClickOkButton(Event e) {
-		MainStage.getStage().close();
+		VersionInfoStage.getStage().close();
 	}
 }
