@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="375.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MoveToRowController">
+   <children>
+      <Label layoutX="35.0" layoutY="15.0" text="行番号(L):" />
+      <TextField fx:id="rowNumber" layoutX="35.0" layoutY="45.0" prefHeight="30.0" prefWidth="305.0" />
+      <Button layoutX="124.0" layoutY="87.0" mnemonicParsing="false" onAction="#onClickMoveToRowButton" prefHeight="31.0" prefWidth="100.0" text="移動" />
+      <Button layoutX="240.0" layoutY="87.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="31.0" prefWidth="100.0" text="キャンセル" />
+   </children>
+</Pane>

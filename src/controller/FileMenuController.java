@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
-import application.window.Window;
+import application.stage.MainStage;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -24,7 +24,7 @@ public class FileMenuController implements Initializable {
 	 */
 	@FXML
 	public void onCreateNewFile(Event e) {
-		Window.getStage().close();
+		MainStage.getStage().close();
 		Main main = new Main();
 		main.start(new Stage());
 	}
@@ -52,7 +52,7 @@ public class FileMenuController implements Initializable {
 	@FXML
 	public void onSaveOverWriteFile() {
 		FileChooser fc = new FileChooser();
-		fc.showSaveDialog(Window.getStage());
+		fc.showSaveDialog(MainStage.getStage());
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class FileMenuController implements Initializable {
 	@FXML
 	public void onSaveNewFile() {
 		FileChooser fc = new FileChooser();
-		fc.showSaveDialog(Window.getStage());
+		fc.showSaveDialog(MainStage.getStage());
 	}
 
 	/**

@@ -15,7 +15,7 @@
          <MenuItem mnemonicParsing="false" text="検索(F)...                 Ctrl+F" />
          <MenuItem mnemonicParsing="false" text="次を検索(N)                  F3" />
          <MenuItem mnemonicParsing="false" text="置換(R)...                  Ctrl+H" />
-         <MenuItem mnemonicParsing="false" text="行へ移動(G)...               Ctrl+G" />
+         <MenuItem mnemonicParsing="false" onAction="#onMoveToLine" text="行へ移動(G)...               Ctrl+G" />
          <MenuItem mnemonicParsing="false" onAction="#onSelectAllText" text="すべて選択(A)                 Ctrl+A" />
          <MenuItem mnemonicParsing="false" onAction="#onInsertDateTime" text="日付と時刻(D)                  F5" />
     </items>

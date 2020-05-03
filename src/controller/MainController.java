@@ -3,7 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.window.Window;
+import application.stage.MainStage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -28,10 +28,10 @@ public class MainController implements Initializable {
 	 * @return テキストエリアのオブジェクト
 	 */
 	public static TextArea getTextArea() {
-		return (TextArea) Window.getStage().getScene().lookup("#textArea");
+		return (TextArea) MainStage.getStage().getScene().lookup("#textArea");
 	}
 
 	public static TextField getTextField() {
-		return (TextField) Window.getStage().getScene().lookup("#textField");
+		return (TextField) MainStage.getStage().getScene().lookup("#textField");
 	}
 }

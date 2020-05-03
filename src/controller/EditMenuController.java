@@ -5,12 +5,17 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import application.stage.MoveToLineStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class EditMenuController implements Initializable {
 
@@ -65,6 +70,26 @@ public class EditMenuController implements Initializable {
 	public void onDeleteText(Event e) {
 		TextArea textArea = MainController.getTextArea();
 		textArea.deleteText(textArea.getSelection());
+	}
+
+	/**
+	 * 行へ移動
+	 */
+	@FXML
+	public void onMoveToLine(Event e) {
+		try {
+			Pane root = (Pane) FXMLLoader.load(
+					getClass().getResource("../application/MoveToRow.fxml"));
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setTitle("行へ移動");
+			stage.setScene(scene);
+			stage.show();
+			MoveToLineStage.setStage(stage);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	/**

@@ -1,6 +1,6 @@
 package application;
 
-import application.window.Window;
+import application.stage.MainStage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +19,7 @@ public class Main extends Application {
 			primaryStage.setTitle("メモ帳");
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			Window.setStage(primaryStage);
+			MainStage.setStage(primaryStage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
