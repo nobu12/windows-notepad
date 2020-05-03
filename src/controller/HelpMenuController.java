@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class HelpMenuController implements Initializable {
@@ -32,6 +33,27 @@ public class HelpMenuController implements Initializable {
 			Stage stage = new Stage();
 			stage.setTitle("Windowsヘルプとサポート");
 			stage.setScene(scene);
+			stage.show();
+			Window.setStage(stage);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
+
+	/**
+	 * バージョン情報
+	 */
+	@FXML
+	public void onOpenVersionInfo(Event e) {
+		try {
+			Pane root = (Pane) FXMLLoader.load(
+					getClass().getResource("../application/VersionInfo.fxml"));
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setTitle("メモ帳 のバージョン情報");
+			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.show();
 			Window.setStage(stage);
 		} catch (Exception e1) {
