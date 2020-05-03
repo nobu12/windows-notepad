@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import application.stage.MoveToLineStage;
-import application.stage.SearchNextStage;
+import application.stage.SearchStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,17 +77,18 @@ public class EditMenuController implements Initializable {
 	 * 次を検索
 	 */
 	@FXML
-	public void onOpenSearchNext(Event e) {
+	public void onOpenSearch(Event e) {
 		try {
 			Pane root = (Pane) FXMLLoader.load(
-					getClass().getResource("../application/SearchNext.fxml"));
+					getClass().getResource("../application/Search.fxml"));
 
 			Scene scene = new Scene(root);
 			Stage stage = new Stage();
 			stage.setTitle("検索");
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.show();
-			SearchNextStage.setStage(stage);
+			SearchStage.setStage(stage);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}

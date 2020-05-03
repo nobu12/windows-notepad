@@ -3,7 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.stage.SearchNextStage;
+import application.stage.SearchStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,7 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
-public class SearchNextController implements Initializable {
+public class SearchController implements Initializable {
 
 	@FXML
 	private TextField searchText;
@@ -22,11 +22,11 @@ public class SearchNextController implements Initializable {
 	private CheckBox caseSensitive;
 
 	@FXML
-	private ToggleGroup radioButtonGroup;
+	private ToggleGroup searchMethodGroup;
 	@FXML
-	private RadioButton upSearchRadioButton;
+	private RadioButton upSearch;
 	@FXML
-	private RadioButton downSearchRadioButton;
+	private RadioButton downSearch;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -37,7 +37,7 @@ public class SearchNextController implements Initializable {
 	 * 検索
 	 */
 	@FXML
-	public void onClickSearchNextButton(Event e) {
+	public void onClickSearchButton(Event e) {
 		TextArea textArea = MainController.getTextArea();
 		int anchor = textArea.getAnchor() + 1;
 		if (textArea.getSelectedText().indexOf(searchText.getText()) == -1) {
@@ -45,7 +45,7 @@ public class SearchNextController implements Initializable {
 		}
 
 		int start = textArea.getText().indexOf(searchText.getText(), anchor);
-		if (upSearchRadioButton == radioButtonGroup.getSelectedToggle()) {
+		if (upSearch == searchMethodGroup.getSelectedToggle()) {
 			anchor = textArea.getAnchor() - 1;
 			start = textArea.getText().lastIndexOf(searchText.getText(), anchor);
 		}
@@ -59,7 +59,7 @@ public class SearchNextController implements Initializable {
 	 */
 	@FXML
 	public void onClickCancelButton(Event e) {
-		SearchNextStage.getStage().close();
+		SearchStage.getStage().close();
 	}
 
 }
