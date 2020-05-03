@@ -3,6 +3,9 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.window.Window;
+import javafx.event.Event;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class VersionInfoController implements Initializable {
@@ -12,4 +15,11 @@ public class VersionInfoController implements Initializable {
 		// 何もしない
 	}
 
+	/**
+	 * OKボタン
+	 */
+	@FXML
+	public void onClickOkButton(Event e) {
+		Window.getStage().close();
+	}
 }

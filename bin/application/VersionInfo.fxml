@@ -20,5 +20,6 @@
       </Label>
       <Separator layoutY="3.0" prefHeight="0.0" prefWidth="560.0" translateX="20.0" translateY="120.0" />
       <Label text="この製品はCC0ライセンスに基づいています。" translateX="150.0" translateY="200.0" />
+      <Button fx:id="okButton" layoutX="450.0" layoutY="335.0" mnemonicParsing="false" onAction="#onClickOkButton" prefHeight="31.0" prefWidth="105.0" text="OK" />
    </children>
 </Pane>

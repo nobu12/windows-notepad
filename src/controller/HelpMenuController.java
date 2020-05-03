@@ -11,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class HelpMenuController implements Initializable {
@@ -54,8 +55,9 @@ public class HelpMenuController implements Initializable {
 			stage.setTitle("メモ帳 のバージョン情報");
 			stage.setScene(scene);
 			stage.setResizable(false);
-			stage.show();
+			stage.initModality(Modality.APPLICATION_MODAL);
 			Window.setStage(stage);
+			stage.showAndWait();
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
