@@ -44,10 +44,19 @@ public class SearchController implements Initializable {
 			anchor = textArea.getAnchor();
 		}
 
-		int start = textArea.getText().indexOf(searchText.getText(), anchor);
+		int start = 0;
+		if (caseSensitive.isSelected()) {
+			start = textArea.getText().indexOf(searchText.getText(), anchor);
+		} else {
+			start = textArea.getText().toLowerCase().indexOf(searchText.getText().toLowerCase(), anchor);
+		}
 		if (upSearch == searchMethodGroup.getSelectedToggle()) {
 			anchor = textArea.getAnchor() - 1;
-			start = textArea.getText().lastIndexOf(searchText.getText(), anchor);
+			if (caseSensitive.isSelected()) {
+				start = textArea.getText().lastIndexOf(searchText.getText(), anchor);
+			} else {
+				start = textArea.getText().toLowerCase().lastIndexOf(searchText.getText().toLowerCase(), anchor);
+			}
 		}
 
 		int end = start + searchText.getText().length();
