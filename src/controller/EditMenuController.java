@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import application.stage.MoveToLineStage;
 import application.stage.SearchStage;
+import controller.data.SearchData;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,7 +75,7 @@ public class EditMenuController implements Initializable {
 	}
 
 	/**
-	 * 次を検索
+	 * 検索
 	 */
 	@FXML
 	public void onOpenSearch(Event e) {
@@ -93,6 +94,20 @@ public class EditMenuController implements Initializable {
 			e1.printStackTrace();
 		}
 	}
+
+	/**
+	 * 次を検索
+	 */
+	@FXML
+	public void onSearchNext(Event e) {
+		if ("".equals(SearchData.getSearchString())) {
+			onOpenSearch(e);
+		} else {
+			SearchController sc = new SearchController();
+			sc.onClickSearchButton(e);
+		}
+	}
+
 
 	/**
 	 * 行へ移動

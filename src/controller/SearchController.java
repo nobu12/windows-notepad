@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.stage.SearchStage;
+import controller.data.SearchData;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,27 +40,36 @@ public class SearchController implements Initializable {
 	@FXML
 	public void onClickSearchButton(Event e) {
 		TextArea textArea = MainController.getTextArea();
+		String target = "";
+		// 次を検索から本メソッドが呼ばれた場合
+		if (searchText == null) {
+			target = SearchData.getSearchString();
+		} else {
+			target = searchText.getText();
+			SearchData.setSearchString(target);
+		}
+
 		int anchor = textArea.getAnchor() + 1;
-		if (textArea.getSelectedText().indexOf(searchText.getText()) == -1) {
+		if (textArea.getSelectedText().indexOf(target) == -1) {
 			anchor = textArea.getAnchor();
 		}
 
 		int start = 0;
-		if (caseSensitive.isSelected()) {
-			start = textArea.getText().indexOf(searchText.getText(), anchor);
+		if (caseSensitive != null && caseSensitive.isSelected()) {
+			start = textArea.getText().indexOf(target, anchor);
 		} else {
-			start = textArea.getText().toLowerCase().indexOf(searchText.getText().toLowerCase(), anchor);
+			start = textArea.getText().toLowerCase().indexOf(target.toLowerCase(), anchor);
 		}
-		if (upSearch == searchMethodGroup.getSelectedToggle()) {
+		if (upSearch != null && upSearch == searchMethodGroup.getSelectedToggle()) {
 			anchor = textArea.getAnchor() - 1;
 			if (caseSensitive.isSelected()) {
-				start = textArea.getText().lastIndexOf(searchText.getText(), anchor);
+				start = textArea.getText().lastIndexOf(target, anchor);
 			} else {
-				start = textArea.getText().toLowerCase().lastIndexOf(searchText.getText().toLowerCase(), anchor);
+				start = textArea.getText().toLowerCase().lastIndexOf(target.toLowerCase(), anchor);
 			}
 		}
 
-		int end = start + searchText.getText().length();
+		int end = start + target.length();
 		textArea.selectRange(start, end);
 	}
 
