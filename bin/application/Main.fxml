@@ -26,12 +26,7 @@
             </items>
           </Menu>
           <fx:include source="DisplayMenu.fxml"/>
-          <Menu mnemonicParsing="false" text="ヘルプ(H)">
-              <items>
-                <MenuItem mnemonicParsing="false" text="ヘルプの表示(H)" />
-                <MenuItem mnemonicParsing="false" text="バージョン情報(A)" />
-              </items>
-            </Menu>
+          <fx:include source="HelpMenu.fxml"/>
         </menus>
       </MenuBar>
       <TextField fx:id="textField" alignment="TOP_LEFT" disable="true" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+ <Menu xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HelpMenuController" mnemonicParsing="false" text="ヘルプ(H)">
+   <items>
+     <MenuItem mnemonicParsing="false" onAction="#onOpenHelp" text="ヘルプの表示(H)" />
+     <MenuItem mnemonicParsing="false" text="バージョン情報(A)" />
+   </items>
+ </Menu>
