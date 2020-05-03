@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import application.stage.MoveToLineStage;
+import application.stage.SearchNextStage;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -70,6 +71,26 @@ public class EditMenuController implements Initializable {
 	public void onDeleteText(Event e) {
 		TextArea textArea = MainController.getTextArea();
 		textArea.deleteText(textArea.getSelection());
+	}
+
+	/**
+	 * 次を検索
+	 */
+	@FXML
+	public void onOpenSearchNext(Event e) {
+		try {
+			Pane root = (Pane) FXMLLoader.load(
+					getClass().getResource("../application/SearchNext.fxml"));
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setTitle("検索");
+			stage.setScene(scene);
+			stage.show();
+			SearchNextStage.setStage(stage);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	/**

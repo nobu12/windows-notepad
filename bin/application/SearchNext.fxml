@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SearchNextController">
+   <children>
+      <Label layoutX="14.0" layoutY="25.0" text="検索する文字列(N):" />
+      <TextField fx:id="searchText" layoutX="172.0" layoutY="20.0" prefHeight="31.0" prefWidth="300.0" />
+      <CheckBox fx:id="caseSensitive" layoutX="14.0" layoutY="125.0" mnemonicParsing="false" text="大文字と小文字を区別する" />
+      <Button layoutX="490.0" layoutY="15.0" mnemonicParsing="false" onAction="#onClickSearchNextButton" prefHeight="31.0" prefWidth="110.0" text="次を検索(F)" />
+      <Button layoutX="490.0" layoutY="60.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="31.0" prefWidth="110.0" text="キャンセル" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0d0d0d00" height="51.0" layoutX="279.0" layoutY="98.0" stroke="#c6c6c6" strokeType="INSIDE" width="193.0" />
+      <Label layoutX="288.0" layoutY="88.0" text="検索する方向" />
+      <RadioButton layoutX="295.0" layoutY="115.0" mnemonicParsing="false" text="上へ(U)" />
+      <RadioButton layoutX="385.0" layoutY="115.0" mnemonicParsing="false" text="下へ(D)" />
+   </children>
+</Pane>
