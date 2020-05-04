@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import application.stage.MoveToLineStage;
+import application.stage.ReplacementStage;
 import application.stage.SearchStage;
 import controller.data.SearchData;
 import javafx.event.Event;
@@ -108,6 +109,26 @@ public class EditMenuController implements Initializable {
 		}
 	}
 
+	/**
+	 * 置換
+	 */
+	@FXML
+	public void onOpenReplacement(Event e) {
+		try {
+			Pane root = (Pane) FXMLLoader.load(
+					getClass().getResource("../application/Replacement.fxml"));
+
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setTitle("置換");
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+			ReplacementStage.setStage(stage);
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
+	}
 
 	/**
 	 * 行へ移動

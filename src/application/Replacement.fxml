@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="230.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReplacementController">
+   <children>
+      <Label layoutX="15.0" layoutY="25.0" text="検索する文字列(N):" />
+      <Label layoutX="15.0" layoutY="70.0" text="置換後の文字列(P):" />
+      <CheckBox fx:id="caseSensitive" layoutX="25.0" layoutY="170.0" mnemonicParsing="false" text="大文字と小文字を区別する(C)" />
+      <TextField fx:id="searchText" layoutX="170.0" layoutY="20.0" prefHeight="31.0" prefWidth="250.0" />
+      <TextField fx:id="replacementText" layoutX="170.0" layoutY="65.0" prefHeight="31.0" prefWidth="250.0" />
+      <Button layoutX="450.0" layoutY="15.0" mnemonicParsing="false" onAction="#onClickSearchNextButton" prefHeight="31.0" prefWidth="145.0" text="次を検索(F)" />
+      <Button layoutX="450.0" layoutY="60.0" mnemonicParsing="false" onAction="#onClickReplaceNextButton" prefHeight="31.0" prefWidth="145.0" text="置換して次に(R)" />
+      <Button layoutX="450.0" layoutY="105.0" mnemonicParsing="false" onAction="#onClickReplaceAllButton" prefHeight="31.0" prefWidth="145.0" text="すべて置換(A)" />
+      <Button layoutX="450.0" layoutY="150.0" mnemonicParsing="false" onAction="#onClickCancelButton" prefHeight="31.0" prefWidth="145.0" text="キャンセル" />
+   </children>
+</Pane>
