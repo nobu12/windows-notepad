@@ -19,6 +19,9 @@ public class ReplacementController implements Initializable {
 	private TextField searchText;
 
 	@FXML
+	private TextField replacementText;
+
+	@FXML
 	private CheckBox caseSensitive;
 
 	@Override
@@ -31,19 +34,7 @@ public class ReplacementController implements Initializable {
 	 */
 	@FXML
 	public void onClickSearchNextButton(Event e) {
-		TextArea textArea = MainController.getTextArea();
-		String target = "";
-		// 次を検索から本メソッドが呼ばれた場合
-		if (searchText == null) {
-			target = SearchData.getSearchString();
-		} else {
-			target = searchText.getText();
-			SearchData.setSearchString(target);
-		}
-
-		int start = SearchUtil.getStartIndex(searchText, caseSensitive, null, null);
-		int end = start + target.length();
-		textArea.selectRange(start, end);
+		getStartIndexWrap();
 	}
 
 	/**
@@ -51,7 +42,9 @@ public class ReplacementController implements Initializable {
 	 */
 	@FXML
 	public void onClickReplaceNextButton(Event e) {
-
+		TextArea textArea = MainController.getTextArea();
+		textArea.replaceText(textArea.getSelection(), replacementText.getText());
+		getStartIndexWrap();
 	}
 
 	/**
@@ -68,6 +61,22 @@ public class ReplacementController implements Initializable {
 	@FXML
 	public void onClickCancelButton(Event e) {
 		ReplacementStage.getStage().close();
+	}
+
+	private void getStartIndexWrap() {
+		TextArea textArea = MainController.getTextArea();
+		String target = "";
+		// 次を検索から本メソッドが呼ばれた場合
+		if (searchText == null) {
+			target = SearchData.getSearchString();
+		} else {
+			target = searchText.getText();
+			SearchData.setSearchString(target);
+		}
+
+		int start = SearchUtil.getStartIndex(searchText, caseSensitive, null, null);
+		int end = start + target.length();
+		textArea.selectRange(start, end);
 	}
 
 }
