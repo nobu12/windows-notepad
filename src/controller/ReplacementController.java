@@ -52,7 +52,13 @@ public class ReplacementController implements Initializable {
 	 */
 	@FXML
 	public void onClickReplaceAllButton(Event e) {
-
+		TextArea textArea = MainController.getTextArea();
+		textArea.selectRange(0, 0);
+		getStartIndexWrap();
+		while (!"".equals(textArea.getSelectedText())) {
+			textArea.replaceText(textArea.getSelection(), replacementText.getText());
+			getStartIndexWrap();
+		}
 	}
 
 	/**
