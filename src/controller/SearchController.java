@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import application.stage.SearchStage;
 import controller.data.SearchData;
+import controller.util.SearchUtil;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,26 +50,7 @@ public class SearchController implements Initializable {
 			SearchData.setSearchString(target);
 		}
 
-		int anchor = textArea.getAnchor() + 1;
-		if (textArea.getSelectedText().indexOf(target) == -1) {
-			anchor = textArea.getAnchor();
-		}
-
-		int start = 0;
-		if (caseSensitive != null && caseSensitive.isSelected()) {
-			start = textArea.getText().indexOf(target, anchor);
-		} else {
-			start = textArea.getText().toLowerCase().indexOf(target.toLowerCase(), anchor);
-		}
-		if (upSearch != null && upSearch == searchMethodGroup.getSelectedToggle()) {
-			anchor = textArea.getAnchor() - 1;
-			if (caseSensitive.isSelected()) {
-				start = textArea.getText().lastIndexOf(target, anchor);
-			} else {
-				start = textArea.getText().toLowerCase().lastIndexOf(target.toLowerCase(), anchor);
-			}
-		}
-
+		int start = SearchUtil.getStartIndex(searchText, caseSensitive, searchMethodGroup, upSearch);
 		int end = start + target.length();
 		textArea.selectRange(start, end);
 	}
