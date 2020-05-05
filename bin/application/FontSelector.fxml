@@ -4,14 +4,13 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FontSelectorController">
    <children>
+      <Label layoutX="20.0" layoutY="30.0" text="フォント名(F):" />
       <Label layoutX="250.0" layoutY="30.0" text="スタイル(Y):" />
-      <Label layoutX="20.0" layoutY="30.0" text="フォンt名(F):" />
       <Label layoutX="420.0" layoutY="30.0" text="サイズ(S):" />
       <TextField layoutX="20.0" layoutY="50.0" prefWidth="200.0" />
-      <ListView layoutX="20.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="fontNameList" layoutX="20.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
       <TextField layoutX="250.0" layoutY="50.0" prefWidth="140.0" />
       <ListView layoutX="250.0" layoutY="80.0" prefHeight="200.0" prefWidth="140.0" />
       <TextField layoutX="420.0" layoutY="50.0" prefWidth="90.0" />
