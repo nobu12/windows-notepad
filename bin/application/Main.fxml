@@ -19,12 +19,7 @@
         <menus>
           <fx:include source="FileMenu.fxml"/>
           <fx:include source="EditMenu.fxml"/>
-          <Menu mnemonicParsing="false" text="書式(O)">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="右端で折り返す(W)" />
-                  <MenuItem mnemonicParsing="false" text="フォント(F)..." />
-            </items>
-          </Menu>
+          <fx:include source="FormatMenu.fxml"/>
           <fx:include source="DisplayMenu.fxml"/>
           <fx:include source="HelpMenu.fxml"/>
         </menus>
