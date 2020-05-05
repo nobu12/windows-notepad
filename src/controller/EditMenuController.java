@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import application.stage.MoveToLineStage;
 import application.stage.ReplacementStage;
 import application.stage.SearchStage;
+import controller.data.MainTextAreaData;
 import controller.data.SearchData;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -25,6 +26,15 @@ public class EditMenuController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 何もしない
+	}
+
+	/**
+	 * 元に戻す
+	 */
+	@FXML
+	public void onUndo(Event e) {
+		TextArea textArea = MainController.getTextArea();
+		textArea.setText(MainTextAreaData.getPreviousString());
 	}
 
 	/**

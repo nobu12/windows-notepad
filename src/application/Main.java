@@ -1,6 +1,7 @@
 package application;
 
 import application.stage.MainStage;
+import event.MainEventHandler;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,6 +21,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			MainStage.setStage(primaryStage);
+			MainEventHandler.setTextAreaKeyEvent();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

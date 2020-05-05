@@ -7,7 +7,7 @@
 
  <Menu xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.EditMenuController" mnemonicParsing="false" text="編集(E)">
     <items>
-         <MenuItem mnemonicParsing="false" text="元に戻す(U)...               Ctrl+Z" />
+         <MenuItem mnemonicParsing="false" onAction="#onUndo" text="元に戻す(U)...               Ctrl+Z" />
          <MenuItem mnemonicParsing="false" onAction="#onCutText" text="切り取り(T)                    Ctrl+X" />
          <MenuItem mnemonicParsing="false" onAction="#onCopyText" text="コピー(C)                     Ctrl+C" />
          <MenuItem mnemonicParsing="false" onAction="#onPasteText" text="貼り付け(P)                 Ctrl+V" />
