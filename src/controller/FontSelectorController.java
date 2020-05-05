@@ -7,11 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import application.stage.FontSelectorStage;
 import javafx.collections.FXCollections;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 
 public class FontSelectorController implements Initializable {
 
@@ -30,8 +35,16 @@ public class FontSelectorController implements Initializable {
 	@FXML
 	private ListView<String> fontSizeList;
 
-	private static final String[] STYLE_LIST = new String[] {"標準", "斜体", "太字", "太字 斜体"};
-	private static final String[] SIZE_LIST = new String[] {"8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72"};
+	private static final String STYLE_PLAIN = "標準";
+	private static final String STYLE_ITALIC = "斜体";
+	private static final String STYLE_BOLD = "太字";
+	private static final String STYLE_BOLD_ITALIC = "太字 斜体";
+	private static final String[] STYLE_LIST = new String[] { FontSelectorController.STYLE_PLAIN,
+			FontSelectorController.STYLE_ITALIC, FontSelectorController.STYLE_BOLD,
+			FontSelectorController.STYLE_BOLD_ITALIC };
+
+	private static final String[] SIZE_LIST = new String[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22",
+			"24", "26", "28", "36", "48", "72" };
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -55,13 +68,12 @@ public class FontSelectorController implements Initializable {
 	 */
 	private void setFontNameList() {
 	    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-	    Font fonts[] = ge.getAllFonts();
+	    Font fontArray[] = ge.getAllFonts();
 	    List<String> fontList = new ArrayList<>();
-	    for (Font f : fonts){
-	    	fontList.add(f.getName());
+	    for (Font font : fontArray){
+	    	fontList.add(font.getName());
 	    }
-	    String[] fontArray = new String[fontList.size()];
-		fontNameList.setItems(FXCollections.observableArrayList(fontList.toArray(fontArray)));
+		fontNameList.setItems(FXCollections.observableArrayList(fontList.toArray(new String[fontList.size()])));
 	}
 
 	/**
@@ -76,6 +88,32 @@ public class FontSelectorController implements Initializable {
 	 */
 	private void setSizeList() {
 		fontSizeList.setItems(FXCollections.observableArrayList(SIZE_LIST));
+	}
+
+	/**
+	 * OKボタン
+	 */
+	@FXML
+	public void onClickOkButton(Event e) {
+		TextArea textArea = MainController.getTextArea();
+		javafx.scene.text.Font font = javafx.scene.text.Font.font(fontName.getText(),
+				STYLE_BOLD.equals(fontStyleName.getText()) || STYLE_BOLD_ITALIC.equals(fontStyleName.getText())
+						? FontWeight.BOLD
+						: FontWeight.NORMAL,
+				STYLE_ITALIC.equals(fontSize)
+						? FontPosture.ITALIC
+						: FontPosture.REGULAR,
+				Integer.valueOf(fontSize.getText()));
+		textArea.setFont(font);
+		FontSelectorStage.getStage().close();
+	}
+
+	/**
+	 * キャンセルボタン
+	 */
+	@FXML
+	public void onClickCancelButton(Event e) {
+		FontSelectorStage.getStage().close();
 	}
 
 	/**
@@ -140,4 +178,5 @@ public class FontSelectorController implements Initializable {
 					fontSize.setText(fontSizeList.getSelectionModel().getSelectedItem());
 				});
 	}
+
 }
