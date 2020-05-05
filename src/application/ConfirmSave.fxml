@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="115.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConfirmSaveController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="70.0" stroke="#d3d3d3" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="10.0" layoutY="10.0" text="無題 への変更内容を保存しますか?" textFill="#253d9a">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="150.0" layoutY="85.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefWidth="140.0" text="保存する(S)" />
+      <Button layoutX="300.0" layoutY="85.0" mnemonicParsing="false" onAction="#onClickDoNotSaveButton" prefWidth="140.0" text="保存しない(S)" />
+      <Button layoutX="450.0" layoutY="85.0" mnemonicParsing="false" onAction="#onClickCancel" prefWidth="87.0" text="キャンセル" />
+   </children>
+</Pane>

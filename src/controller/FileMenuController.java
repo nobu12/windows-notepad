@@ -3,14 +3,19 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.Main;
+import application.stage.ConfirmSaveStage;
 import application.stage.MainStage;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.print.PrinterJob;
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class FileMenuController implements Initializable {
@@ -24,9 +29,24 @@ public class FileMenuController implements Initializable {
 	 */
 	@FXML
 	public void onCreateNewFile(Event e) {
-		MainStage.getStage().close();
-		Main main = new Main();
-		main.start(new Stage());
+		TextArea textArea = MainController.getTextArea();
+		if (!"".equals(textArea.getText())) {
+			try {
+				Pane root = (Pane) FXMLLoader.load(
+						getClass().getResource("../application/ConfirmSave.fxml"));
+
+				Scene scene = new Scene(root);
+				Stage stage = new Stage();
+				stage.setTitle("メモ帳");
+				stage.setScene(scene);
+				stage.setResizable(false);
+				stage.initModality(Modality.APPLICATION_MODAL);
+				ConfirmSaveStage.setStage(stage);
+				stage.showAndWait();
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
 	}
 
 	/**
