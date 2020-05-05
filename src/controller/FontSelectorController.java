@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.net.URL;
 import java.util.ArrayList;
@@ -68,9 +67,9 @@ public class FontSelectorController implements Initializable {
 	 */
 	private void setFontNameList() {
 	    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-	    Font fontArray[] = ge.getAllFonts();
+	    java.awt.Font fontArray[] = ge.getAllFonts();
 	    List<String> fontList = new ArrayList<>();
-	    for (Font font : fontArray){
+	    for (java.awt.Font font : fontArray){
 	    	fontList.add(font.getName());
 	    }
 		fontNameList.setItems(FXCollections.observableArrayList(fontList.toArray(new String[fontList.size()])));
