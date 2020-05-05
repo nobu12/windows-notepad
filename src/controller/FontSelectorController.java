@@ -17,8 +17,26 @@ public class FontSelectorController implements Initializable {
 	@FXML
 	private ListView<String> fontNameList;
 
+	@FXML
+	private ListView<String> styleList;
+
+	@FXML
+	private ListView<String> sizeList;
+
+	private static final String[] STYLE_LIST = new String[] {"標準", "斜体", "太字", "太字 斜体"};
+	private static final String[] SIZE_LIST = new String[] {"8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72"};
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		setFontNameList();
+		setStyleList();
+		setSizeList();
+	}
+
+	/**
+	 * フォント一覧作成
+	 */
+	private void setFontNameList() {
 	    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
 	    Font fonts[] = ge.getAllFonts();
 	    List<String> fontList = new ArrayList<>();
@@ -29,5 +47,18 @@ public class FontSelectorController implements Initializable {
 		fontNameList.setItems(FXCollections.observableArrayList(fontList.toArray(fontArray)));
 	}
 
+	/**
+	 * スタイル一覧作成
+	 */
+	private void setStyleList() {
+		styleList.setItems(FXCollections.observableArrayList(STYLE_LIST));
+	}
+
+	/**
+	 * サイズ一覧作成
+	 */
+	private void setSizeList() {
+		sizeList.setItems(FXCollections.observableArrayList(SIZE_LIST));
+	}
 
 }

@@ -12,9 +12,9 @@
       <TextField layoutX="20.0" layoutY="50.0" prefWidth="200.0" />
       <ListView fx:id="fontNameList" layoutX="20.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
       <TextField layoutX="250.0" layoutY="50.0" prefWidth="140.0" />
-      <ListView layoutX="250.0" layoutY="80.0" prefHeight="200.0" prefWidth="140.0" />
+      <ListView fx:id="styleList" layoutX="250.0" layoutY="80.0" prefHeight="200.0" prefWidth="140.0" />
       <TextField layoutX="420.0" layoutY="50.0" prefWidth="90.0" />
-      <ListView layoutX="420.0" layoutY="80.0" prefHeight="200.0" prefWidth="90.0" />
+      <ListView fx:id="sizeList" layoutX="420.0" layoutY="80.0" prefHeight="200.0" prefWidth="90.0" />
       <Label layoutX="255.0" layoutY="315.0" text="サンプル" />
       <Label layoutX="250.0" layoutY="370.0" text="文字セット(R):" />
       <ComboBox layoutX="250.0" layoutY="390.0" prefHeight="30.0" prefWidth="260.0" />
