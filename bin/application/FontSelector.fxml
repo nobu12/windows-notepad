@@ -9,12 +9,12 @@
       <Label layoutX="20.0" layoutY="30.0" text="フォント名(F):" />
       <Label layoutX="250.0" layoutY="30.0" text="スタイル(Y):" />
       <Label layoutX="420.0" layoutY="30.0" text="サイズ(S):" />
-      <TextField layoutX="20.0" layoutY="50.0" prefWidth="200.0" />
+      <TextField fx:id="fontName" layoutX="20.0" layoutY="50.0" prefWidth="200.0" />
       <ListView fx:id="fontNameList" layoutX="20.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField layoutX="250.0" layoutY="50.0" prefWidth="140.0" />
-      <ListView fx:id="styleList" layoutX="250.0" layoutY="80.0" prefHeight="200.0" prefWidth="140.0" />
-      <TextField layoutX="420.0" layoutY="50.0" prefWidth="90.0" />
-      <ListView fx:id="sizeList" layoutX="420.0" layoutY="80.0" prefHeight="200.0" prefWidth="90.0" />
+      <TextField fx:id="fontStyleName" layoutX="250.0" layoutY="50.0" prefWidth="140.0" />
+      <ListView fx:id="fontStyleNameList" layoutX="250.0" layoutY="80.0" prefHeight="200.0" prefWidth="140.0" />
+      <TextField fx:id="fontSize" layoutX="420.0" layoutY="50.0" prefWidth="90.0" />
+      <ListView fx:id="fontSizeList" layoutX="420.0" layoutY="80.0" prefHeight="200.0" prefWidth="90.0" />
       <Label layoutX="255.0" layoutY="315.0" text="サンプル" />
       <Label layoutX="250.0" layoutY="370.0" text="文字セット(R):" />
       <ComboBox layoutX="250.0" layoutY="390.0" prefHeight="30.0" prefWidth="260.0" />
