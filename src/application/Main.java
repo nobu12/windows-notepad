@@ -22,6 +22,7 @@ public class Main extends Application {
 			primaryStage.show();
 			MainStage.setStage(primaryStage);
 			MainEventHandler.setTextAreaKeyEvent();
+			MainEventHandler.setTextAreaChangedEvent();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

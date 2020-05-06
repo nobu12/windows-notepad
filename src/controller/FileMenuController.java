@@ -1,10 +1,16 @@
 package controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.stage.ConfirmSaveStage;
 import application.stage.MainStage;
+import controller.data.MainTextAreaData;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -30,7 +36,7 @@ public class FileMenuController implements Initializable {
 	@FXML
 	public void onCreateNewFile(Event e) {
 		TextArea textArea = MainController.getTextArea();
-		if (!"".equals(textArea.getText())) {
+		if (MainTextAreaData.isChanged()) {
 			try {
 				Pane root = (Pane) FXMLLoader.load(
 						getClass().getResource("../application/ConfirmSave.fxml"));
@@ -63,7 +69,10 @@ public class FileMenuController implements Initializable {
 		//        fc.setInitialDirectory(new File(System.getProperty("user.home")));
 		// ファイルダイアログ表示
 		//File file = fc.showSaveDialog(null);
-		fc.showOpenDialog(null);
+		File file = fc.showOpenDialog(null);
+		if (file != null) {
+			MainController.getTextArea().setText(readFile(file));
+		}
 	}
 
 	/**
@@ -109,4 +118,35 @@ public class FileMenuController implements Initializable {
 	public void onCloseApplication() {
         Platform.exit();
 	}
+
+	/**
+	 * ファイルを読み込み、読み込んだデータを返す
+	 * @param file 読み込むファイル
+	 * @return 読み込んだデータ
+	 */
+	private String readFile(File file) {
+		StringBuilder stringBuffer = new StringBuilder();
+		BufferedReader bufferedReader = null;
+
+		try {
+			bufferedReader = new BufferedReader(new FileReader(file));
+			String text;
+			while ((text = bufferedReader.readLine()) != null) {
+				stringBuffer.append(text).append("\r\n");
+			}
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		return stringBuffer.toString();
+	}
+
 }

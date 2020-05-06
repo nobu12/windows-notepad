@@ -18,4 +18,13 @@ public class MainEventHandler {
 				});
 	}
 
+	/**
+	 * テキストエリアが変更されたときのイベント
+	 */
+	public static void setTextAreaChangedEvent() {
+		MainController.getTextArea().textProperty().addListener((observable, oldValue, newValue) -> {
+			MainTextAreaData.setChanged();
+		});
+	}
+
 }
