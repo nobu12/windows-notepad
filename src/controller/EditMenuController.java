@@ -27,11 +27,24 @@ public class EditMenuController implements Initializable {
     @FXML
     private MenuItem undo;
 
+    @FXML
+    private MenuItem cut;
+
+    @FXML
+    private MenuItem copy;
+
+    @FXML
+    private MenuItem delete;
+
     private static EditMenuController editMenuController;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		undo.setDisable(true);
+		cut.setDisable(true);
+		copy.setDisable(true);
+		delete.setDisable(true);
+
 		editMenuController = this;
 	}
 
@@ -41,6 +54,18 @@ public class EditMenuController implements Initializable {
 
 	public MenuItem getUndo() {
 		return undo;
+	}
+
+	public MenuItem getCut() {
+		return cut;
+	}
+
+	public MenuItem getCopy() {
+		return copy;
+	}
+
+	public MenuItem getDelete() {
+		return delete;
 	}
 
 	/**

@@ -29,4 +29,28 @@ public class MainEventHandler {
 		});
 	}
 
+	/**
+	 * テキストエリアのテキストが選択/選択解除されたときのイベント
+	 */
+	public static void setTextAreaSelectedEvent() {
+		MainController.getTextArea().selectionProperty()
+				.addListener((observable, oldValue, newValue) -> {
+					if ("".equals(MainController.getTextArea().getSelectedText())) {
+						setTextAreaDisable(true);
+					} else {
+						setTextAreaDisable(false);
+					}
+				});
+	}
+
+	/**
+	 * メニューの活性・非活性の設定をまとめて実行
+	 * @param value 活性はfalse、非活性はtrue
+	 */
+	private static void setTextAreaDisable(boolean value) {
+		EditMenuController.getEmc().getCut().setDisable(value);
+		EditMenuController.getEmc().getCopy().setDisable(value);
+		EditMenuController.getEmc().getDelete().setDisable(value);
+	}
+
 }
