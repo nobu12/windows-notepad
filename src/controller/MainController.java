@@ -6,15 +6,15 @@ import java.util.ResourceBundle;
 import application.stage.MainStage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 public class MainController implements Initializable {
 
     @FXML
     private TextArea textArea;
     @FXML
-    private TextField textField;
+    private Label statusBar;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -31,7 +31,7 @@ public class MainController implements Initializable {
 		return (TextArea) MainStage.getStage().getScene().lookup("#textArea");
 	}
 
-	public static TextField getTextField() {
-		return (TextField) MainStage.getStage().getScene().lookup("#textField");
+	public static Label getStatusBar() {
+		return (Label) MainStage.getStage().getScene().lookup("#statusBar");
 	}
 }

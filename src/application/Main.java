@@ -24,6 +24,8 @@ public class Main extends Application {
 			MainEventHandler.setTextAreaKeyEvent();
 			MainEventHandler.setTextAreaChangedEvent();
 			MainEventHandler.setTextAreaSelectedEvent();
+			MainEventHandler.setTextAreaMouseClickedEvent();
+			MainEventHandler.setTextAreaKeyReleasedEvent();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 
 public class DisplayMenuController implements Initializable {
 
@@ -20,7 +20,7 @@ public class DisplayMenuController implements Initializable {
 	 */
 	@FXML
 	public void onShowStatusBar(Event e) {
-		TextField textField = MainController.getTextField();
+		Label textField = MainController.getStatusBar();
 		if (textField.getMaxHeight() == 0) {
 			textField.setMaxHeight(-1);
 			textField.setMinHeight(-1);

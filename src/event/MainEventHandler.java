@@ -3,6 +3,7 @@ package event;
 import controller.EditMenuController;
 import controller.MainController;
 import controller.data.MainTextAreaData;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
 
 public class MainEventHandler {
@@ -26,7 +27,27 @@ public class MainEventHandler {
 	public static void setTextAreaChangedEvent() {
 		MainController.getTextArea().textProperty().addListener((observable, oldValue, newValue) -> {
 			MainTextAreaData.setChanged();
+
+			MainController.getStatusBar().setText(getStatusBarText());
 		});
+	}
+
+	/**
+	 * テキストエリア上でマウスがクリックされたときのイベント
+	 */
+	public static void setTextAreaMouseClickedEvent() {
+			MainController.getTextArea().setOnMouseClicked(value -> {
+				MainController.getStatusBar().setText(getStatusBarText());
+			});
+	}
+
+	/**
+	 * テキストエリア上でキーボードのキーが離されたときのイベント
+	 */
+	public static void setTextAreaKeyReleasedEvent() {
+			MainController.getTextArea().setOnKeyReleased(value -> {
+				MainController.getStatusBar().setText(getStatusBarText());
+			});
 	}
 
 	/**
@@ -51,6 +72,31 @@ public class MainEventHandler {
 		EditMenuController.getEmc().getCut().setDisable(value);
 		EditMenuController.getEmc().getCopy().setDisable(value);
 		EditMenuController.getEmc().getDelete().setDisable(value);
+	}
+
+	/**
+	 * ステータスバーに表示するテキストを取得する
+	 * @return
+	 */
+	private static String getStatusBarText() {
+		TextArea textArea = MainController.getTextArea();
+		StringBuilder sb = new StringBuilder();
+
+		int selectionEnd = textArea.getSelection().getEnd();
+		// テキストエリアの末尾以外が選択されているとき
+		if (textArea.getText().length() != selectionEnd) {
+			selectionEnd++;
+		}
+
+		sb.append(textArea.getText(0, selectionEnd).split("\n").length).append("行、");
+
+		int sum = 0;
+		for (int i = 0; i < textArea.getText(0, selectionEnd ).split("\n").length - 1; i++) {
+			sum += textArea.getText(0, selectionEnd).split("\n")[i].length() + 1;
+		}
+
+		sb.append(textArea.getText().length() != selectionEnd ? selectionEnd - sum : selectionEnd - sum + 1).append("列");
+		return sb.toString();
 	}
 
 }

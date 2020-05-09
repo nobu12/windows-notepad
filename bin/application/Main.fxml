@@ -24,6 +24,6 @@
           <fx:include source="HelpMenu.fxml"/>
         </menus>
       </MenuBar>
-      <TextField fx:id="textField" alignment="TOP_LEFT" disable="true" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />
+      <Label fx:id="statusBar" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="600.0" GridPane.rowIndex="2" />
    </children>
 </GridPane>
