@@ -1,5 +1,6 @@
 package event;
 
+import controller.EditMenuController;
 import controller.MainController;
 import controller.data.MainTextAreaData;
 import javafx.scene.input.KeyCode;
@@ -14,6 +15,7 @@ public class MainEventHandler {
 				.setOnKeyPressed(keyEvent -> {
 					if (KeyCode.BACK_SPACE.equals(keyEvent.getCode())) {
 						MainTextAreaData.setPreviousString(MainController.getTextArea().getText());
+						EditMenuController.getEmc().getUndo().setDisable(false);
 					}
 				});
 	}

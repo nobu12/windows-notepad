@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
@@ -23,9 +24,23 @@ import javafx.stage.Stage;
 
 public class EditMenuController implements Initializable {
 
+    @FXML
+    private MenuItem undo;
+
+    private static EditMenuController editMenuController;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// 何もしない
+		undo.setDisable(true);
+		editMenuController = this;
+	}
+
+	public static EditMenuController getEmc() {
+		return editMenuController;
+	}
+
+	public MenuItem getUndo() {
+		return undo;
 	}
 
 	/**
