@@ -1,23 +1,355 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
 
-<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FaqController">
+<ScrollPane fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FaqController">
    <content>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <VBox focusTraversable="true" spacing="10.0">
          <children>
-            <Label text="メモ帳: FAQ" textFill="#0ecbe8" translateX="20.0" translateY="30.0">
+            <Label prefHeight="20.0" text="メモ帳: FAQ" textFill="#16b96f">
                <font>
                   <Font size="24.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </Label>
-            <Label prefWidth="580.0" text="メモ帳は、テキストファイル(通常、拡張子は.txt)の表示や単純な編集を行う場合に便利なアプリです。" textOverrun="CLIP" translateX="20.0" translateY="50.0" wrapText="true" />
-            <TreeView fx:id="faqTextView" maxHeight="1.7976931348623157E308" minHeight="3000.0" prefHeight="3000.0" translateY="80.0" />
+            <Label layoutX="20.0" layoutY="50.0" prefHeight="20.0" text="メモ帳は、テキストファイル(通常、拡張子は.txt)の表示や単純な編集を行う場合に便利なアプリです。" textOverrun="CLIP" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></Label>
+            <Hyperlink focusTraversable="false" prefHeight="30.0" text="すべて表示" textFill="#218bd7" visited="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <VBox focusTraversable="true" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Hyperlink focusTraversable="false" onAction="#onClickHorizontalScrollLink" prefHeight="30.0" text="&gt; 水平方向にスクロールせずにすべての文字列を表示するにはどうすればいいですか。 " textFill="#0095c2" textOverrun="CLIP" wrapText="true" />
+                  <VBox fx:id="horizontalScrollAnswer" focusTraversable="true" prefHeight="60.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label prefHeight="20.0" text="2. [書式] メニューをタップまたはクリックし、[右端で折り返す] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink fx:id="fontStyleAndSize" focusTraversable="false" onAction="#onClickFontStyleAndSizeLink" prefHeight="30.0" text="&gt; フォントのスタイルとサイズを変更するにはどうすればいいですか。 " textFill="#0095c2" textOverrun="CLIP" translateY="-60.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="115.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer11" prefHeight="20.0" text="フォントのスタイルとサイズを変更すると、その部分だけでなく、そのファイル内のすべてのテキストの外観が変わります。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211" prefHeight="20.0" text="2. [書式] メニューをタップまたはクリックし、[フォント] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212" prefHeight="20.0" text="3.フォント、フォント スタイル、およびサイズを選択し、[OK] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickTextEditLink" prefHeight="30.0" text="&gt; テキストの切り取り、コピー、貼り付け、または削除をするにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-180.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="210.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer111" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211" prefHeight="20.0" text="2.次のいずれかの操作を行います。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2111" prefHeight="20.0" text="•テキストをある場所から別の場所に移動するには、テキストを選び、[編集] メニューをタップまたはクリックして、[切り取り] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121" prefHeight="20.0" text="•2 か所で同じテキストを使うには、テキストを選び、[編集] メニューをタップまたはクリックして、[コピー] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211" prefHeight="20.0" text="•切り取ったテキストまたはコピーしたテキストを貼り付けるには、ファイル内のテキストを貼り付ける位置をタップまたはクリックし、[編集] メニューをタップまたはクリックして、[貼り付け] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21212" prefHeight="20.0" text="•テキストを削除するには、テキストを選び、[編集] メニューをタップまたはクリックして、[削除] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21213" prefHeight="20.0" text="•直前の操作を元に戻すには、[編集] メニューをタップまたはクリックし、[元に戻す] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickSaveFileExtendedLink" prefHeight="30.0" text="&gt; メモ帳ファイルは .txt 以外の形式で保存できますか。" textFill="#0095c2" textOverrun="CLIP" translateY="-395.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="115.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer1111" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2111" prefHeight="20.0" text="2. [ファイル] メニューをタップまたはクリックし、[名前を付けて保存] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21111" prefHeight="20.0" text="3. [名前を付けて保存] ダイアログ ボックスの [ファイルの種類] ボックスの一覧で、[すべてのファイル (*.*)] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211" prefHeight="20.0" text="4.適用する拡張子を付けてファイル名を入力し、[保存] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickPrintDocmentLink" prefHeight="30.0" text="&gt; メモ帳のドキュメントを印刷するにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-515.0" wrapText="true" />
+                  <VBox focusTraversable="true" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer11111" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21111" prefHeight="20.0" text="2. [ファイル] メニューをタップまたはクリックし、[印刷] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211111" prefHeight="20.0" text="3.使用するプリンターとオプションを選び、[印刷] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111" prefHeight="20.0" text="ヒント" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121111" prefHeight="20.0" text="印刷するドキュメントの外観を決める設定を変更するには、[ファイル] メニューをクリックし、[ページ設定] をクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121112" prefHeight="20.0" text="•用紙サイズを変更するには、[サイズ] ボックスで目的のサイズをタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121113" prefHeight="20.0" text="•給紙方法を変更するには、[給紙方法] ボックスで目的のトレイ名やフィーダーをタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121114" prefHeight="20.0" text="•ファイルを縦向きに印刷するには [縦] をタップまたはクリックします。ファイルを横向きに印刷するには [横] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121115" prefHeight="20.0" text="•余白を変更するには、[余白] ボックスのいずれかに幅を入力します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121116" prefHeight="20.0" text="印刷の問題が発生した場合は、「 Windows での印刷の問題を解決する方法」をご覧ください。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickInsertTimeAndDateLink" prefHeight="30.0" text="&gt; 時刻と日付をファイルに挿入するにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-820.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="85.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer111111" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211111" prefHeight="20.0" text="2.ファイルで、時刻と日付を追加する位置をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2111111" prefHeight="20.0" text="3. [編集] メニューをタップまたはクリックし、[日付と時刻] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickReplacementWordLink" prefHeight="30.0" text="&gt; 特定の文字列や単語を検索して置換するにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-910.0" wrapText="true" />
+                  <VBox focusTraversable="true" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer111112" prefHeight="20.0" text="文字列や単語を検索するには" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211111" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2111112" prefHeight="20.0" text="2. [編集] メニューをタップまたはクリックし、[検索] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2121111" prefHeight="20.0" text="3. [検索する文字列] ボックスに検索する文字列や単語を入力します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211111" prefHeight="20.0" text="4. [検索する方向] の [上へ] か [下へ] をタップまたはクリックし、現在のカーソルの位置からファイルの先頭または末尾までを検索します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211121" prefHeight="20.0" text="5. [次を検索] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211131" prefHeight="20.0" text="文字列や単語を置換するには" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211141" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211151" prefHeight="20.0" text="2. [編集] メニューをタップまたはクリックし、[置換] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211161" prefHeight="20.0" text="3. [検索する文字列] ボックスに検索する文字列や単語を入力します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111111" prefHeight="20.0" text="4. [置換後の文字列] ボックスに置換後のテキストを入力します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111112" prefHeight="20.0" text="5. [次を検索] をタップまたはクリックし、[置換] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111113" prefHeight="20.0" text="すべてのテキストを一度に置換するには、[すべて置換] をクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111114" prefHeight="20.0" text="ヒント" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111115" prefHeight="20.0" text="[検索する文字列] ボックスで指定した大文字および小文字と一致するテキストのみを検索または置換するには、[大文字と小文字を区別する] チェック ボックスをオンにします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickCreateHeaderAndFotterLink" prefHeight="30.0" text="&gt; ヘッダーまたはフッターを作成するにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-1370.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="115.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer1111121" prefHeight="20.0" text="ヘッダーとフッターには、ファイルの上余白および下余白に表示されるテキストが含まれます。ファイルを印刷するときに、ヘッダー情報とフッター情報は各ページに表示されます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer2111112" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21111121" prefHeight="20.0" text="2. [ファイル] メニューをタップまたはクリックし、[ページ設定] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21211111" prefHeight="20.0" text="3. [ヘッダー] ボックスまたは [フッター] ボックスに、ヘッダーおよびフッターに使用するテキストを入力します。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Hyperlink focusTraversable="false" onAction="#onClickMoveSpecificLineLink" prefHeight="30.0" text="&gt; メモ帳ファイルで特定の行に移動するにはどうすればいいですか。" textFill="#0095c2" textOverrun="CLIP" translateY="-1490.0" wrapText="true" />
+                  <VBox focusTraversable="true" prefHeight="115.0" spacing="10.0" translateX="30.0" visible="false">
+                     <children>
+                        <Label fx:id="horizontalScrollAnswer11111211" prefHeight="20.0" text="メモ帳ファイルに行番号が表示されない場合でも、ファイルの特定の行に移動することができます。行は、ファイルの先頭から左端を数えていきます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer21111121" prefHeight="20.0" text="1. [メモ帳] をタップまたはクリックして開きます。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer211111211" prefHeight="20.0" text="2. [編集] メニューをタップまたはクリックし、[行へ移動] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="horizontalScrollAnswer212111116" prefHeight="20.0" text="3. [行番号] ボックスにカーソルのジャンプ先となる行の番号を入力し、[移動] をタップまたはクリックします。" textOverrun="CLIP" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="TEXT" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
          </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
       </VBox>
    </content>
+   <padding>
+      <Insets left="20.0" />
+   </padding>
 </ScrollPane>
